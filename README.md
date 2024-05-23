@@ -83,14 +83,14 @@ Under # What ports, IPs and protocols we listen for, change the port number to 3
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/7fa0b47a-0c6e-419a-b3a0-19dec6b5fd28)
 
-+ Write your changes and quit vi.
+Write your changes and quit vi.
 Ctrl + C
 :wq
 
-+ Restart the SSH service.
+Restart the SSH service.
 service ssh restart
 
-+ By running the command below, you can see that the server is now listening for connections on port 3393.
+By running the command below, you can see that the server is now listening for connections on port 3393.
 netstat -tan
 Proto Recv-Q Send-Q Local Address Foreign Address State
 tcp0 0 0.0.0.0:3393 0.0.0.0:* LISTEN
