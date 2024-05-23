@@ -77,7 +77,7 @@ Pi computers. Here's a brief overview of its key features:
 
 + Change the Port You’ll Use to Administer the Server
 Cowrie will be listening for SSH connections on port 22. You’ll want to configure the SSH service to listen on a different port for you to connect to and administer the server. <br />
-sudo vi /etc/ssh/sshd_config `#f03c15`
+**sudo vi /etc/ssh/sshd_config** 
 
 + Under # What ports, IPs and protocols we listen for, change the port number to 3393 or your preferred port number.
 
