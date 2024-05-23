@@ -83,8 +83,8 @@ Under # What ports, IPs and protocols we listen for, change the port number to 3
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/7fa0b47a-0c6e-419a-b3a0-19dec6b5fd28)
 
-Write your changes and quit vi.
-Ctrl + C
+Write your changes and quit vi. <br />
+Ctrl + C <br />
 :wq
 
 Restart the SSH service.
