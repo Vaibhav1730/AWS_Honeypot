@@ -73,7 +73,7 @@ Pi computers. Here's a brief overview of its key features:
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/fce0bf4a-95e1-4022-b8f4-11bf3e5bb4fc)
 
-### Steps to setup Cowrie Honeypot in Raspberry Pi 5 Environment
+## Steps to setup Cowrie Honeypot in Raspberry Pi 5 Environment
 
 #### Change the Port You’ll Use to Administer the Server
 Cowrie will be listening for SSH connections on port 22. You’ll want to configure the SSH service to listen on a different port for you to connect to and administer the server.
@@ -111,18 +111,60 @@ sudo su — cowrie
 Navigate to the home directory of user, cowrie, and clone the cowrie git repository.
 git clone https://github.com/micheloosterhof/cowrie.git
 
+Create a new Python virtual environment for cowrie.
+cd cowrie
+virtualenv cowrie-env
 
+Activate the virtual environment.
+source cowrie-env/bin/activate
 
+The terminal will display (cowrie-env) before the username, cowrie.
 
+Install pycrypto, Crypto and other requirements.
+pip install pycrypto Crypto
+(cowrie-env)$ pip install -r requirements.txt
 
+Make a copy of the config file for your new cowrie instance.
+cd /home/cowrie/cowrie/
+cp cowrie.cfg.dist cowrie.cfg
+vi ./cowrie.cfg
 
+Set the hostname in the configuration file to a server name of your choice. E.g. fileserver4
 
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/ff3eb535-82e0-4485-80ec-4312805cf3e3)
 
+Change the Port to listen for incoming SSH connections to port 22.
 
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/8199b0cb-ed79-4ed4-b029-21726e0f1d8f)
 
+Write your changes and quit vi.
+Ctrl + C
+:wq
 
+Enable authbind in cowrie’s start.sh file.
+sudo vi /home/cowrie/cowrie/start.sh
 
+Change line 2 to read:
+AUTHBIND_ENABLED=yes
 
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/48229964-9f61-44c5-8416-ac57261a8da9)
+
+sudo apt-get install authbind
+sudo touch /etc/authbind/byport/22
+sudo chown cowrie /etc/authbind/byport/22
+sudo chmod 777 /etc/authbind/byport/22
+
+Execute the following commands to start Cowrie.
+sudo su cowrie
+cd /home/cowrie/cowrie/
+source cowrie-env/bin/activate
+./start.sh
+
+Verify cowrie is listening on port 22 by running the command below.
+netstat -tan
+
+Execute the following command to stop Cowrie.
+./stop.sh
 
 
 
