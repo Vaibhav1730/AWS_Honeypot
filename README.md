@@ -25,9 +25,10 @@ documented extensively to contribute to the body of knowledge in cybersecurity r
 
 ### Raspberry Pi 
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/ae623989-de75-4735-83c6-9fbbebcc4644)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/bcbae690-489c-476c-a385-f790ff510867)
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/e664f7a1-3f36-43b1-bd6d-b14a1ed9b822)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/18c2c3ff-56ea-4375-8e0e-c871fb784ae7)
+
 The Raspberry Pi 5 is a single-board computer renowned for its compact size, low cost, and impressive performance. Powered by a quad-core ARM Cortex-A72 processor 
 running at up to 1.8GHz, coupled with 4GB of RAM, the Raspberry Pi 5 offers significant computing power for various applications. It features built-in wireless 
 connectivity options such as Wi-Fi 6 and Bluetooth 5.0, along with Gigabit Ethernet for network connectivity. Additionally, it boasts a plethora of peripheral ports, including 
