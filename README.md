@@ -75,20 +75,20 @@ Pi computers. Here's a brief overview of its key features:
 
 ## Steps to setup Cowrie Honeypot in Raspberry Pi 5 Environment
 
-#### Change the Port You’ll Use to Administer the Server
++ Change the Port You’ll Use to Administer the Server
 Cowrie will be listening for SSH connections on port 22. You’ll want to configure the SSH service to listen on a different port for you to connect to and administer the server.
 sudo vi /etc/ssh/sshd_config
 
-Under # What ports, IPs and protocols we listen for, change the port number to 3393 or your preferred port number.
++ Under # What ports, IPs and protocols we listen for, change the port number to 3393 or your preferred port number.
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/7fa0b47a-0c6e-419a-b3a0-19dec6b5fd28)
 
-Write your changes and quit vi. <br />
++ Write your changes and quit vi. <br />
 Ctrl + C <br />
-:wq
+:wq <br />
 
-Restart the SSH service.
-service ssh restart
++ Restart the SSH service. <br />
+service ssh restart 
 
 By running the command below, you can see that the server is now listening for connections on port 3393.
 netstat -tan
