@@ -36,41 +36,42 @@ USB 3.0, HDMI, GPIO, and more, enabling seamless integration with a wide range o
 
 ### Raspberry Pi Imager
 
-![Screenshot 2024-05-04 212503](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/84be815a-4af5-448f-92d2-2772e23123cb)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/d7f65ac2-b868-4851-b3d0-424eddf98303)
+
 Raspberry Pi Imager is an official tool developed by the Raspberry Pi Foundation for easily installing operating systems onto SD cards or USB drives for use with Raspberry 
 Pi computers. Here's a brief overview of its key features:
 
 ### Raspberry Pi OS
 
-![Screenshot 2024-05-04 213110](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/4ef81a44-7755-4305-bace-6e187da99af4)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/c82db289-10e5-48d5-aa38-1614ba8950d8)
 
-![Screenshot 2024-05-23 162635](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/8f25c4de-3189-4be1-aff6-3d991c93d8f9)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/28babd00-d4e8-4d34-9726-455e7b2484d7)
 
-![Screenshot 2024-05-23 162712](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/673b5208-d831-4b08-966b-a72a6c934811)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/5371b801-7baa-4be3-8c6c-f917b955e41e)
 
 ### Kali Linux
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/66e9e7fe-b035-4b25-aeeb-87a3d81447c1)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/1dc74c6a-784f-4181-9450-95f11c48846e)
 
 ### Honeypot Firmware
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/25c24601-4cee-4d45-804f-c92f1163623a)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/9191f5e9-6a3f-4fed-920a-d65d92d6fc10)
 
 ### AWS Instance 
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/1b91d305-3e6c-45ef-a993-058c38208dd6)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/e46a9d88-8b4f-4df9-bdb1-fd042a92492a)
 
 ### Cowrie Honeypot
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/81f8a303-d3d2-4059-abd0-a615b45bca94)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/42606ee8-27c9-4beb-82bf-22c4d4a2dd81)
 
 ### Block Diagram
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/14789b20-e54d-4d6c-9843-e6991db98495)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/839d778a-8c74-438b-83bc-03f00a0a8d12)
 
 ### Flowchart
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/2dc56221-f9dd-48ee-8cb8-0f1186835743)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/fce0bf4a-95e1-4022-b8f4-11bf3e5bb4fc)
 
 ### Steps to setup Cowrie Honeypot in Raspberry Pi 5 Environment
 
