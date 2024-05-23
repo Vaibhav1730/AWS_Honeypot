@@ -178,7 +178,7 @@ EC2 instance specifications:
 Once the EC2 instance is created:
 1) - Keep note of the EC2 public IP
 Noted XX.XX.XX.XX in this post
-2) Make sure to generate a .pem key to be able to connect to EC2 instance through ssh. Download it.
+2) * Make sure to generate a .pem key to be able to connect to EC2 instance through ssh. Download it.
 
 
 
