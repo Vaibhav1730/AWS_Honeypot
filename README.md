@@ -166,6 +166,21 @@ netstat -tan
 Execute the following command to stop Cowrie.
 ./stop.sh
 
+## Now set up an AWS EC2 instance with port-forwarding 
+
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/f7e426fd-c44e-4f67-92f5-1fbabd96c7a2)
+
+Step 1: Create an ubuntu EC2 server on AWS
+EC2 instance specifications:
+1) t2 nano is enough
+2) Create instance in the region which is closest to where your private server is so to keep the latency as low as possible.
+
+Once the EC2 instance is created:
+1) - Keep note of the EC2 public IP
+Noted XX.XX.XX.XX in this post
+2) Make sure to generate a .pem key to be able to connect to EC2 instance through ssh. Download it.
+
+
 
 
 
