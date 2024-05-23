@@ -79,72 +79,72 @@ Pi computers. Here's a brief overview of its key features:
 Cowrie will be listening for SSH connections on port 22. You’ll want to configure the SSH service to listen on a different port for you to connect to and administer the server.
 sudo vi /etc/ssh/sshd_config
 
-- Under # What ports, IPs and protocols we listen for, change the port number to 3393 or your preferred port number.
+Under # What ports, IPs and protocols we listen for, change the port number to 3393 or your preferred port number.
 
-![image](https://github.com/Vaibhav1730/Cloud-Based-Honeypot-Deployment-on-AWS/assets/116676361/770860df-98c9-41e8-bcec-3fa23f6852e4)
+![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/7fa0b47a-0c6e-419a-b3a0-19dec6b5fd28)
 
-- Write your changes and quit vi.
+Write your changes and quit vi.
 Ctrl + C
 :wq
 
-- Restart the SSH service.
+Restart the SSH service.
 service ssh restart
 
-- By running the command below, you can see that the server is now listening for connections on port 3393.
+By running the command below, you can see that the server is now listening for connections on port 3393.
 netstat -tan
 Proto Recv-Q Send-Q Local Address Foreign Address State
 tcp0 0 0.0.0.0:3393 0.0.0.0:* LISTEN
 
-- Install and Configure Cowrie
+Install and Configure Cowrie
 Download updated package lists.
 sudo apt-get update
 
-- Install Cowrie’s dependencies.
+Install Cowrie’s dependencies.
 sudo apt-get install python2.7 git virtualenv libmpfr-dev libssl-dev libmpc-dev libffi-dev build-essential libpython-dev python-pip
 
-- Add a new user named, cowrie.
+Add a new user named, cowrie.
 sudo adduser — disabled-password cowrie
 
-- Switch to the new user, cowrie
+Switch to the new user, cowrie
 sudo su — cowrie
 
-- Navigate to the home directory of user, cowrie, and clone the cowrie git repository.
+Navigate to the home directory of user, cowrie, and clone the cowrie git repository.
 git clone https://github.com/micheloosterhof/cowrie.git
 
-- Create a new Python virtual environment for cowrie.
+Create a new Python virtual environment for cowrie.
 cd cowrie
 virtualenv cowrie-env
 
-- Activate the virtual environment.
+Activate the virtual environment.
 source cowrie-env/bin/activate
 
-- The terminal will display (cowrie-env) before the username, cowrie.
+The terminal will display (cowrie-env) before the username, cowrie.
 
-- Install pycrypto, Crypto and other requirements.
+Install pycrypto, Crypto and other requirements.
 pip install pycrypto Crypto
 (cowrie-env)$ pip install -r requirements.txt
 
-- Make a copy of the config file for your new cowrie instance.
+Make a copy of the config file for your new cowrie instance.
 cd /home/cowrie/cowrie/
 cp cowrie.cfg.dist cowrie.cfg
 vi ./cowrie.cfg
 
-- Set the hostname in the configuration file to a server name of your choice. E.g. fileserver4
+Set the hostname in the configuration file to a server name of your choice. E.g. fileserver4
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/ff3eb535-82e0-4485-80ec-4312805cf3e3)
 
-- Change the Port to listen for incoming SSH connections to port 22.
+Change the Port to listen for incoming SSH connections to port 22.
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/8199b0cb-ed79-4ed4-b029-21726e0f1d8f)
 
-- Write your changes and quit vi.
+Write your changes and quit vi.
 Ctrl + C
 :wq
 
-- Enable authbind in cowrie’s start.sh file.
+Enable authbind in cowrie’s start.sh file.
 sudo vi /home/cowrie/cowrie/start.sh
 
-- Change line 2 to read:
+Change line 2 to read:
 AUTHBIND_ENABLED=yes
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/48229964-9f61-44c5-8416-ac57261a8da9)
@@ -154,60 +154,60 @@ sudo touch /etc/authbind/byport/22
 sudo chown cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
 
-- Execute the following commands to start Cowrie.
+Execute the following commands to start Cowrie.
 sudo su cowrie
 cd /home/cowrie/cowrie/
 source cowrie-env/bin/activate
 ./start.sh
 
-- Verify cowrie is listening on port 22 by running the command below.
+Verify cowrie is listening on port 22 by running the command below.
 netstat -tan
 
-- Execute the following command to stop Cowrie.
+Execute the following command to stop Cowrie.
 ./stop.sh
 
 ## Now set up an AWS EC2 instance with port-forwarding 
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/f7e426fd-c44e-4f67-92f5-1fbabd96c7a2)
 
-- Step 1: Create an ubuntu EC2 server on AWS
+Step 1: Create an ubuntu EC2 server on AWS
 EC2 instance specifications:
 t2 nano is enough
 Create instance in the region which is closest to where your private server is so to keep the latency as low as possible.
 
-- Once the EC2 instance is created:
+Once the EC2 instance is created:
 Keep note of the EC2 public IP
 Noted XX.XX.XX.XX in this post
 Make sure to generate a .pem key to be able to connect to EC2 instance through ssh. Download it.
 
-- Connect to the instance through ssh using the following commands:
+Connect to the instance through ssh using the following commands:
 export INSTANCE_IP=XX.XX.XX.XX
 ssh -i mykey.pem ubuntu@$INSTANCE_IP
 
-- Step 2: Edit Security Group
+Step 2: Edit Security Group
 Open port 8022 for connection from anywhere (0.0.0.0/0)
 
 ![image](https://github.com/Vaibhav1730/AWS_Honeypot/assets/116676361/71c86136-2000-41b6-b660-db5a0166f171)
 
-- Step 3: Edit SSH config
+Step 3: Edit SSH config
 Change in the EC2 instance GatewayPorts to yes in /etc/ssh/sshd_config file.
 
-- Restart SSH service:
+Restart SSH service:
 sudo /etc/init.d/ssh restart
 
-- Step 4: Connect to private server
+Step 4: Connect to private server
 export PRIVATE_IP=192.168.68.120
 ssh username@$PRIVATE_IP
 
-- Step 5: Open a SSH connection between your private server and the EC2 instance
+Step 5: Open a SSH connection between your private server and the EC2 instance
 You need to have first a copy of the EC2 instance SSH key on your private server.
 export INSTANCE_IP=XX.XX.XX.XX
 ssh -N -o ServerAliveInterval=20 -i mykey.pem -R 8022:127.0.0.1:22 ubuntu@$INSTANCE_IP &
 
-- This command instructs AWS server to forward packages coming from its port 8022 to your private server port 22.
+This command instructs AWS server to forward packages coming from its port 8022 to your private server port 22.
 A ping is sent every 20 seconds to keep the connection alive.
 & enables running the command in background.
 
-- Step 6 (and last step): Connect to your private server from anywhere
+Step 6 (and last step): Connect to your private server from anywhere
 To connect to tower, connect to server on port 8022:
 ssh -p 8022 username@$INSTANCE_IP
